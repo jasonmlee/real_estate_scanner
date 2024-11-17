@@ -26,11 +26,11 @@ with st.sidebar:
     min_price, max_price = st.slider("Price Range:", value =[0, 10000000])
 
 if area == "Terra Nova":
-    df = pd.read_csv("TerraNova_full_details.csv")
+    df = pd.read_csv("data/TerraNova_full_details.csv")
     df = df.query("Price > @min_price & Price < @max_price")
 
 elif area == "Point Grey":
-    df = pd.read_csv("PointGrey_full_details.csv")
+    df = pd.read_csv("data/PointGrey_full_details.csv")
     df = df.query("Price > @min_price & Price < @max_price")
 
 m = folium.Map(location=(df['Latitude'].astype(float).mean(), df['Longitude'].astype(float).mean()),
